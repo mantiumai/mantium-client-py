@@ -2,7 +2,7 @@
 from invoke import Runner, task
 
 # Name of the repository
-REPO_NAME = 'api-models'
+REPO_NAME = 'core-client-py'
 
 
 @task
@@ -11,8 +11,9 @@ def publish_dev_build(cmd: Runner, token_name: str, token: str) -> None:
     # The first step is to build the sdist and wheel
     cmd.run('poetry build')
 
+    # TODO: (alexn) get correct package location
     # Make sure the package registry is available
-    cmd.run(f'poetry config repositories.{REPO_NAME} https://git.mantiumai.com/api/v4/projects/153/packages/pypi')
+    # cmd.run(f'poetry config repositories.{REPO_NAME} https://git.mantiumai.com/api/v4/projects/153/packages/pypi')
 
     # Set the HTTP-Auth used when connecting to GitLab's PyPI interface
     cmd.run(f'poetry config http-basic.{REPO_NAME} "{token_name}" "{token}"')
@@ -27,6 +28,7 @@ def publish_build(cmd: Runner) -> None:
     # The first step is to build the sdist and wheel
     cmd.run('poetry build')
 
+    # TODO: (alexn) configure CI variables to work with this
     # Set the repo
     cmd.run(f'poetry config repositories.{REPO_NAME} ${{CI_API_V4_URL}}/projects/${{CI_PROJECT_ID}}/packages/pypi')
 

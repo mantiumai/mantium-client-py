@@ -15,16 +15,6 @@ repos:
           - --no-ensure-ascii
           - --autofix
 
-# Validate GitLab CI
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.22.0
-    hooks:
-      - id: check-gitlab-ci
-        name: "validate gitlab ci"
-        files: ^\.gitlab-ci.yml$
-        types: [yaml]
-        args: ["-v"]
-
   # isort alphabetizes your python imports and groups them
   # The 'black' profile helps us avoid disagreements with the blue formatter.
   - repo: https://github.com/pycqa/isort
