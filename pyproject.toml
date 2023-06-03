@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "core-client-py"
+version = "0.1.1"
+description = "Python client for the Mantium API"
+authors = ["Mantium <support@mantiumai.com>"]
+readme = "README.md"
+packages = [{include = "mantium"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.2"
+pre-commit = "2.20.0"
+
+
+[tool.poetry.group.dev.dependencies]
+invoke = "^1.7.3"
+pre-commit = "^2.20.0"
+mypy = "^0.982"
+types-invoke = "^1.7.3.3"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+
+
+[[tool.poetry.source]]
+name = "dugong"
+url = "https://git.mantiumai.com/api/v4/groups/278/-/packages/pypi/simple"
+default = false
+secondary = false
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
