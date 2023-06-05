@@ -4,8 +4,6 @@ from typing import Any
 import requests
 from openapi_client import ApiClient
 
-version = '0.1.0'
-
 
 def is_none_or_empty(value: str | None) -> bool:
     """Check if a value is None or empty."""
@@ -13,6 +11,9 @@ def is_none_or_empty(value: str | None) -> bool:
         return True
 
     return not (value and value.strip())
+
+
+version = '0.1.0'
 
 
 class MantiumClient(ApiClient):
@@ -24,8 +25,7 @@ class MantiumClient(ApiClient):
 
         self.client_id = client_id or os.getenv('MANTIUM_CLIENT_ID')
         self.client_secret = client_secret or os.getenv('MANTIUM_CLIENT_SECRET')
-        self.token_type = None
-        self.access_token = None
+        self.access_token: str | None = None
 
         self.host = 'https://api2.mantiumai.com'
         self.client_side_validation = False
@@ -42,8 +42,8 @@ class MantiumClient(ApiClient):
             client_secret=self.client_secret,
             scope='mantium:client',
         )
-        if self.token_type and self.access_token:
-            return f'{self.token_type} {self.access_token}'
+        if self.access_token is not None:
+            return self.access_token
         else:
             r = requests.post(f'{self.host}/oauth/token', data=body, headers=headers)
             if r.status_code == 403:
@@ -56,10 +56,9 @@ class MantiumClient(ApiClient):
                     'Status Code: ' + str(r.status_code)
                 )
             else:
-                content = r.json()
-                self.token_type = content['token_type']
-                self.access_token = content['access_token']
-                return f'{self.token_type} {self.access_token}'
+                token_content = r.json()
+                self.access_token = f'{token_content["token_type"]} {token_content["access_token"]}'
+                return self.access_token
 
     def call_api(self, *args: Any, **kwargs: Any) -> tuple:
         """Call the API with the given args and kwargs."""
@@ -69,7 +68,9 @@ class MantiumClient(ApiClient):
             del kwargs['response_types_map']
         if '_request_auth' in kwargs:
             del kwargs['_request_auth']
-        header_params.update({'Authorization': f'{self.get_token()}'})
+
+        access_token = self.get_token()
+        header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
         return super().call_api(
             resource_path,
             method,
