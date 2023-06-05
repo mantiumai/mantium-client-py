@@ -32,6 +32,9 @@ keywords = ["mantium", "ChatGPT", "AI"]
 python = "^3.10"
 pydantic = "^1.10.2"
 pre-commit = "2.20.0"
+requests = "^2.31.0"
+fastapi = "^0.96.0"
+openapi-client = "^1.1.7"
 
 
 [tool.poetry.group.dev.dependencies]

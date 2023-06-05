@@ -52,21 +52,6 @@ files = [
 test = ["pytest (>=6)"]
 
 [[package]]
-name = "fastjsonschema"
-version = "2.17.1"
-description = "Fastest Python implementation of JSON schema"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "fastjsonschema-2.17.1-py3-none-any.whl", hash = "sha256:4b90b252628ca695280924d863fe37234eebadc29c5360d322571233dc9746e0"},
-    {file = "fastjsonschema-2.17.1.tar.gz", hash = "sha256:f4eeb8a77cef54861dbf7424ac8ce71306f12cbb086c45131bcba2c6a4f726e3"},
-]
-
-[package.extras]
-devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benchmark", "pytest-cache", "validictory"]
-
-[[package]]
 name = "filelock"
 version = "3.12.0"
 description = "A platform independent file lock."
@@ -81,23 +66,6 @@ files = [
 [package.extras]
 docs = ["furo (>=2023.3.27)", "sphinx (>=6.1.3)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)"]
 testing = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "diff-cover (>=7.5)", "pytest (>=7.3.1)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest-timeout (>=2.1)"]
-
-[[package]]
-name = "flake8"
-version = "6.0.0"
-description = "the modular source code checker: pep8 pyflakes and co"
-category = "dev"
-optional = false
-python-versions = ">=3.8.1"
-files = [
-    {file = "flake8-6.0.0-py2.py3-none-any.whl", hash = "sha256:3833794e27ff64ea4e9cf5d410082a8b97ff1a06c16aa3d2027339cd0f1195c7"},
-    {file = "flake8-6.0.0.tar.gz", hash = "sha256:c61007e76655af75e6785a931f452915b371dc48f56efd765247c8fe68f2b181"},
-]
-
-[package.dependencies]
-mccabe = ">=0.7.0,<0.8.0"
-pycodestyle = ">=2.10.0,<2.11.0"
-pyflakes = ">=3.0.0,<3.1.0"
 
 [[package]]
 name = "identify"
@@ -136,18 +104,6 @@ python-versions = "*"
 files = [
     {file = "invoke-1.7.3-py3-none-any.whl", hash = "sha256:d9694a865764dd3fd91f25f7e9a97fb41666e822bbb00e670091e3f43933574d"},
     {file = "invoke-1.7.3.tar.gz", hash = "sha256:41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"},
-]
-
-[[package]]
-name = "mccabe"
-version = "0.7.0"
-description = "McCabe checker, plugin for flake8"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
-    {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
 ]
 
 [[package]]
@@ -286,18 +242,6 @@ toml = "*"
 virtualenv = ">=20.0.8"
 
 [[package]]
-name = "pycodestyle"
-version = "2.10.0"
-description = "Python style guide checker"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "pycodestyle-2.10.0-py2.py3-none-any.whl", hash = "sha256:8a4eaf0d0495c7395bdab3589ac2db602797d76207242c17d470186815706610"},
-    {file = "pycodestyle-2.10.0.tar.gz", hash = "sha256:347187bdb476329d98f695c213d7295a846d1152ff4fe9bacb8a9590b8ee7053"},
-]
-
-[[package]]
 name = "pydantic"
 version = "1.10.9"
 description = "Data validation and settings management using python type hints"
@@ -349,18 +293,6 @@ typing-extensions = ">=4.2.0"
 [package.extras]
 dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
-
-[[package]]
-name = "pyflakes"
-version = "3.0.1"
-description = "passive checker of Python programs"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "pyflakes-3.0.1-py2.py3-none-any.whl", hash = "sha256:ec55bf7fe21fff7f1ad2f7da62363d749e2a470500eab1b555334b67aa1ef8cf"},
-    {file = "pyflakes-3.0.1.tar.gz", hash = "sha256:ec8b276a6b60bd80defed25add7e439881c19e64850afd9b346283d4165fd0fd"},
-]
 
 [[package]]
 name = "pytest"
@@ -477,18 +409,6 @@ files = [
 ]
 
 [[package]]
-name = "trove-classifiers"
-version = "2023.5.24"
-description = "Canonical source for classifiers on PyPI (pypi.org)."
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "trove-classifiers-2023.5.24.tar.gz", hash = "sha256:fd5a1546283be941f47540a135bdeae8fb261380a6a204d9c18012f2a1b0ceae"},
-    {file = "trove_classifiers-2023.5.24-py3-none-any.whl", hash = "sha256:d9d7ae14fb90bf3d50bef99c3941b176b5326509e6e9037e622562d6352629d0"},
-]
-
-[[package]]
 name = "types-invoke"
 version = "1.7.3.17"
 description = "Typing stubs for invoke"
@@ -511,29 +431,6 @@ files = [
     {file = "typing_extensions-4.6.3-py3-none-any.whl", hash = "sha256:88a4153d8505aabbb4e13aacb7c486c2b4a33ca3b3f807914a9b4c844c471c26"},
     {file = "typing_extensions-4.6.3.tar.gz", hash = "sha256:d91d5919357fe7f681a9f2b5b4cb2a5f1ef0a1e9f59c4d8ff0d3491e05c0ffd5"},
 ]
-
-[[package]]
-name = "validate-pyproject"
-version = "0.13"
-description = "Validation library and CLI tool for checking on 'pyproject.toml' files using JSON Schema"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "validate-pyproject-0.13.tar.gz", hash = "sha256:9fc9153ea587592a37ed5313628221bd276886497cb8ec35a2e02c28ddd39911"},
-    {file = "validate_pyproject-0.13-py3-none-any.whl", hash = "sha256:5026aabfb376744032e5f9cdfceb4e75badce181b21398f64a768c373531b3e0"},
-]
-
-[package.dependencies]
-fastjsonschema = ">=2.16.2,<=3"
-packaging = {version = ">=20.4", optional = true, markers = "extra == \"all\""}
-tomli = {version = ">=1.2.1", optional = true, markers = "python_version < \"3.11\" and extra == \"all\""}
-trove-classifiers = {version = ">=2021.10.20", optional = true, markers = "extra == \"all\""}
-
-[package.extras]
-all = ["packaging (>=20.4)", "tomli (>=1.2.1)", "trove-classifiers (>=2021.10.20)"]
-testing = ["pytest", "pytest-cov", "pytest-randomly", "pytest-xdist", "setuptools"]
-typecheck = ["importlib-resources", "mypy"]
 
 [[package]]
 name = "virtualenv"
@@ -559,4 +456,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3f71d5f4656b90b31d053cb829aa45958cbcad430b94280aa83facc2415ca047"
+content-hash = "b4b4623104bd0af49f2c9400ecc7aaab45ad6369ef0152872e246965ccb0f47c"
