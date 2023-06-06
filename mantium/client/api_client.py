@@ -69,13 +69,28 @@ class MantiumClient(ApiClient):
                 self.access_token = f'{token_content["token_type"]} {token_content["access_token"]}'
                 return self.access_token
 
+    def select_header_content_type(self, content_types, method, body):
+        """Select the correct header content type."""
+        return 'application/json'
+
     def call_api(self, *args: Any, **kwargs: Any) -> tuple:
         """Call the API with the given args and kwargs."""
         resource_path, method, path_params, query_params, header_params = args
         kwargs['auth_settings'] = ['oauth2']
+        if 'response_types_map' in kwargs:
+            del kwargs['response_types_map']
+        if '_request_auth' in kwargs:
+            del kwargs['_request_auth']
 
         access_token = self.get_token()
         header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
         return super().call_api(
-            resource_path, method, path_params, query_params, header_params, _host=self.host, **kwargs
+            resource_path,
+            method,
+            path_params,
+            query_params,
+            header_params,
+            response_type=(list(),),
+            _host=self.host,
+            **kwargs,
         )

@@ -107,15 +107,15 @@ files = [
 ]
 
 [[package]]
-name = "mantium-spec"
-version = "0.1.0.dev2"
+name = "mantium-spec-dev1"
+version = "0.1.0"
 description = "OpenAPI-generated Python client"
 category = "main"
 optional = false
-python-versions = "==3.10.8"
+python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mantium_spec-0.1.0.dev2-py3-none-any.whl", hash = "sha256:ad094699e7637592996f50e7b4f994b34d486cc4b26e7e456c6b8e41febeb948"},
-    {file = "mantium_spec-0.1.0.dev2.tar.gz", hash = "sha256:8cdf6d0f774661afb44909781f5a7e69d739463fb4f7d6cf54211b5fd22cde0f"},
+    {file = "mantium_spec_dev1-0.1.0-py3-none-any.whl", hash = "sha256:20fc20d563c79d76e7f6dd21dc7d441f9f571556fa7199f6f25789fc5769ec61"},
+    {file = "mantium_spec_dev1-0.1.0.tar.gz", hash = "sha256:e50895f0c51802a7e2ac92a22855923e9ef33031a1d449c0fd207c9c93f5bd4d"},
 ]
 
 [package.dependencies]
@@ -476,4 +476,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "3.10.8"
-content-hash = "26b81c4d67840f399992b061a4f254670efc047a06a3dde9cefadf689b55a5c6"
+content-hash = "f2cdad5a63df3426150fa9b1bbfb97121952b410cd520fb92c11e9f97931e190"
