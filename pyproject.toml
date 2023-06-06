@@ -29,12 +29,13 @@ keywords = ["mantium", "ChatGPT", "AI"]
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.10.8"
 pydantic = "^1.10.2"
 pre-commit = "2.20.0"
 requests = "^2.31.0"
 fastapi = "^0.96.0"
 openapi-client = "^1.1.7"
+mantium-spec = "^0.1.0.dev2"
 
 
 [tool.poetry.group.dev.dependencies]

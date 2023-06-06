@@ -13,6 +13,15 @@ def is_none_or_empty(value: str | None) -> bool:
     return not (value and value.strip())
 
 
+ENV = os.getenv('ENV', 'dev')
+
+host_map = {
+    'dev': 'http://localhost:8000',
+    'aks-staging': 'https://staging-api.sandbox2.mantiumai.com/',
+    'aks-production': 'https://api2.mantiumai.com',
+}
+
+
 version = '0.1.0'
 
 
@@ -27,7 +36,7 @@ class MantiumClient(ApiClient):
         self.client_secret = client_secret or os.getenv('MANTIUM_CLIENT_SECRET')
         self.access_token: str | None = None
 
-        self.host = 'https://api2.mantiumai.com'
+        self.host = host_map.get(ENV, 'http://localhost:8000')
         self.client_side_validation = False
 
     def get_token(self) -> str:
@@ -64,20 +73,9 @@ class MantiumClient(ApiClient):
         """Call the API with the given args and kwargs."""
         resource_path, method, path_params, query_params, header_params = args
         kwargs['auth_settings'] = ['oauth2']
-        if 'response_types_map' in kwargs:
-            del kwargs['response_types_map']
-        if '_request_auth' in kwargs:
-            del kwargs['_request_auth']
 
         access_token = self.get_token()
         header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
         return super().call_api(
-            resource_path,
-            method,
-            path_params,
-            query_params,
-            header_params,
-            response_type=(list(),),
-            _host=self.host,
-            **kwargs,
+            resource_path, method, path_params, query_params, header_params, _host=self.host, **kwargs
         )

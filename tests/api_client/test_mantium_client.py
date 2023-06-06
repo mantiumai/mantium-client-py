@@ -1,6 +1,7 @@
 from unittest.mock import patch
 
 import pytest
+from openapi_client import ApplicationsApi
 
 from mantium.client.api_client import MantiumClient
 
@@ -52,3 +53,22 @@ def test_call_api(client):
         'Authorization': 'Bearer test_token',
         'User-Agent': 'mantium-client-py/0.1.0',
     }
+
+
+def test_list_applications(client):
+    apps_api = ApplicationsApi(client)
+    mock_requests_post_target = 'mantium.client.api_client.requests.post'
+    mock_call_api_target = 'mantium.client.api_client.ApiClient.call_api'
+    with patch(mock_requests_post_target) as mock_post, patch(mock_call_api_target) as mock_call_api:
+        mock_post.return_value.status_code = 200
+        mock_post.return_value.json.return_value = dict(
+            access_token='test_token', token_type='Bearer', expires_in=3600, scope='test_scope'
+        )
+        mock_call_api.return_value = dict(detail=[], count=0, next=None, previous=None)
+
+        apps_api.list_applications()
+
+    mock_call_api.assert_called_once()
+    args, kwargs = mock_call_api.call_args
+    assert args[0] == '/applications/'
+    assert args[1] == 'GET'
