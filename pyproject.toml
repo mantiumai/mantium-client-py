@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "core-client-py"
+name = "mantium-client-py"
 version = "0.1.1"
 description = "Python client for the Mantium API"
 authors = ["Mantium <support@mantiumai.com>"]
