@@ -37,7 +37,7 @@ class MantiumClient(ApiClient):
     def get_token(self) -> str:
         """Get a token from the Mantium API."""
         if is_none_or_empty(self.client_id) or is_none_or_empty(self.client_secret):
-            raise ValueError('Make sure both MANTIUM_USER and MANTIUM_PASSWORD are set in your env vars.')
+            raise ValueError('Make sure both MANTIUM_CLIENT_ID and MANTIUM_CLIENT_SECRET are set in your env vars.')
 
         headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'}
         body = dict(
@@ -51,7 +51,7 @@ class MantiumClient(ApiClient):
         else:
             r = requests.post(f'{self.host}/oauth/token', data=body, headers=headers)
             if r.status_code == 403:
-                raise ValueError('Username or password incorrect, or token invalid')
+                raise ValueError('MANTIUM_CLIENT_ID or MANTIUM_CLIENT_SECRET incorrect, or token invalid')
             elif r.status_code == 422:
                 raise ValueError('Credentials were unprocessable by the API.')
             elif r.status_code != 200:
