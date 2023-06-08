@@ -84,7 +84,7 @@ class MantiumClient(ApiClient):
             del kwargs['_request_auth']
 
         access_token = self.get_token()
-        header_params.update({'Authorization': f'{access_token+"1"}', 'User-Agent': 'mantium-client-py/' + version})
+        header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
 
         retryer = Retrying(
             reraise=True,
