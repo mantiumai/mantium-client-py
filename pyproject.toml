@@ -1,10 +1,32 @@
 [tool.poetry]
 name = "mantium-client-py"
 version = "0.1.1"
+license = "Apache-2.0"
 description = "Python client for the Mantium API"
 authors = ["Mantium <support@mantiumai.com>"]
 readme = "README.md"
 packages = [{include = "mantium"}]
+repository = "https://github.com/mantiumai/mantium-client-py"
+homepage = "https://github.com/mantiumai/mantium-client-py"
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Scientific/Engineering',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Topic :: Software Development :: Pre-processors',
+    'Operating System :: OS Independent'
+]
+keywords = ["mantium", "ChatGPT", "AI"]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -21,7 +43,8 @@ types-invoke = "^1.7.3.3"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
-
+validate-pyproject = "^0.13"
+flake8 = "^6.0.0"
 
 [[tool.poetry.source]]
 name = "dugong"
