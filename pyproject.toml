@@ -34,8 +34,8 @@ pydantic = "^1.10.2"
 pre-commit = "2.20.0"
 requests = "^2.31.0"
 fastapi = "^0.96.0"
-mantium-spec = "0.1.6"
 tenacity = "^8.2.2"
+mantium-spec = "1.0.311"
 
 
 [tool.poetry.group.dev.dependencies]

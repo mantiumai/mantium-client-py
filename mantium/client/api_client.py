@@ -64,7 +64,7 @@ class MantiumClient(ApiClient):
                 self.access_token = f'{token_content["token_type"]} {token_content["access_token"]}'
                 return self.access_token
 
-    def select_header_content_type(self, content_types, method, body):
+    def select_header_content_type(self, content_types: list, method: str, body: dict) -> str:
         """Select the correct header content type."""
         return 'application/json'
 
