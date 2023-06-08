@@ -6,6 +6,8 @@ from openapi_client import ApiClient
 from openapi_client.exceptions import ForbiddenException, UnauthorizedException
 from tenacity import RetryCallState, Retrying, retry_if_exception_type, stop_after_attempt, wait_fixed
 
+from .version import __version__
+
 
 def is_none_or_empty(value: str | None) -> bool:
     """Check if a value is None or empty."""
@@ -15,10 +17,7 @@ def is_none_or_empty(value: str | None) -> bool:
     return not (value and value.strip())
 
 
-ROOT_URL = os.getenv('ROOT_URL', 'https://api2.mantiumai.com')
-
-
-version = '0.1.0'
+version = __version__
 
 
 class MantiumClient(ApiClient):
@@ -32,7 +31,7 @@ class MantiumClient(ApiClient):
         self.client_secret = client_secret or os.getenv('MANTIUM_CLIENT_SECRET')
         self.access_token: str | None = None
 
-        self.host = ROOT_URL
+        self.host = os.getenv('ROOT_URL', 'https://api2.mantiumai.com')
         self.client_side_validation = False
 
     def get_token(self) -> str:
@@ -69,7 +68,7 @@ class MantiumClient(ApiClient):
         """Select the correct header content type."""
         return 'application/json'
 
-    def _token_refresh(self, _: RetryCallState) -> None:
+    def _refresh_token(self, _: RetryCallState) -> None:
         """Refresh the token."""
         self.access_token = None
         self.get_token()
@@ -90,7 +89,7 @@ class MantiumClient(ApiClient):
             reraise=True,
             wait=wait_fixed(2),
             stop=stop_after_attempt(3),
-            before_sleep=self._token_refresh,
+            before_sleep=self._refresh_token,
             retry=retry_if_exception_type((UnauthorizedException, ForbiddenException)),
         )
         for attempt in retryer:
