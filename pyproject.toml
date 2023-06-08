@@ -35,6 +35,8 @@ pre-commit = "2.20.0"
 requests = "^2.31.0"
 fastapi = "^0.96.0"
 mantium-spec-dev1 = "^0.1.0"
+mantium-spec = "0.1.6"
+tenacity = "^8.2.2"
 
 
 [tool.poetry.group.dev.dependencies]

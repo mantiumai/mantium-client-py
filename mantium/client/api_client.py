@@ -3,6 +3,8 @@ from typing import Any
 
 import requests
 from openapi_client import ApiClient
+from openapi_client.exceptions import ForbiddenException, UnauthorizedException
+from tenacity import RetryCallState, Retrying, retry_if_exception_type, stop_after_attempt, wait_fixed
 
 
 def is_none_or_empty(value: str | None) -> bool:
@@ -13,13 +15,7 @@ def is_none_or_empty(value: str | None) -> bool:
     return not (value and value.strip())
 
 
-ENV = os.getenv('ENV', 'dev')
-
-host_map = {
-    'dev': 'http://localhost:8000',
-    'aks-staging': 'https://staging-api.sandbox2.mantiumai.com/',
-    'aks-production': 'https://api2.mantiumai.com',
-}
+ROOT_URL = os.getenv('ROOT_URL', 'https://api2.mantiumai.com')
 
 
 version = '0.1.0'
@@ -36,7 +32,7 @@ class MantiumClient(ApiClient):
         self.client_secret = client_secret or os.getenv('MANTIUM_CLIENT_SECRET')
         self.access_token: str | None = None
 
-        self.host = host_map.get(ENV, 'http://localhost:8000')
+        self.host = ROOT_URL
         self.client_side_validation = False
 
     def get_token(self) -> str:
@@ -73,6 +69,12 @@ class MantiumClient(ApiClient):
         """Select the correct header content type."""
         return 'application/json'
 
+    def _token_refresh(self, retry_state: RetryCallState) -> None:
+        """Refresh the token."""
+        if retry_state.attempt_number:
+            self.access_token = None
+            self.get_token()
+
     def call_api(self, *args: Any, **kwargs: Any) -> tuple:
         """Call the API with the given args and kwargs."""
         resource_path, method, path_params, query_params, header_params = args
@@ -84,13 +86,24 @@ class MantiumClient(ApiClient):
 
         access_token = self.get_token()
         header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
-        return super().call_api(
-            resource_path,
-            method,
-            path_params,
-            query_params,
-            header_params,
-            response_type=(list(),),
-            _host=self.host,
-            **kwargs,
+
+        retryer = Retrying(
+            reraise=True,
+            wait=wait_fixed(2),
+            stop=stop_after_attempt(3),
+            before_sleep=self._token_refresh,
+            retry=retry_if_exception_type((UnauthorizedException, ForbiddenException)),
         )
+        for attempt in retryer:
+            with attempt:
+                response = super().call_api(
+                    resource_path,
+                    method,
+                    path_params,
+                    query_params,
+                    header_params,
+                    response_type=(list(),),
+                    _host=self.host,
+                    **kwargs,
+                )
+        return response

@@ -107,6 +107,26 @@ files = [
 ]
 
 [[package]]
+name = "mantium-spec"
+version = "0.1.6"
+description = "OpenAPI-generated Python client"
+category = "main"
+optional = false
+python-versions = ">=3.10,<4.0"
+files = [
+    {file = "mantium_spec-0.1.6-py3-none-any.whl", hash = "sha256:0a29225dd94f7702d719c8ee1e4ee67140a0b9f6733db7d55d017279521760ed"},
+    {file = "mantium_spec-0.1.6.tar.gz", hash = "sha256:81568f82e99c4724c0945cae1a186729de67b8c1358c8d4fbc2b19c16da32e85"},
+]
+
+[package.dependencies]
+openapi-client = ">=1.1.7,<2.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://git.mantiumai.com/api/v4/groups/278/-/packages/pypi/simple"
+reference = "dugong"
+
+[[package]]
 name = "mantium-spec-dev1"
 version = "0.1.0"
 description = "OpenAPI-generated Python client"
@@ -405,6 +425,26 @@ testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8-2020", "ini2toml[l
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
+name = "tenacity"
+version = "8.2.2"
+description = "Retry code until it succeeds"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "tenacity-8.2.2-py3-none-any.whl", hash = "sha256:2f277afb21b851637e8f52e6a613ff08734c347dc19ade928e519d7d2d8569b0"},
+    {file = "tenacity-8.2.2.tar.gz", hash = "sha256:43af037822bd0029025877f3b2d97cc4d7bb0c2991000a3d59d71517c5c969e0"},
+]
+
+[package.extras]
+doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[package.source]
+type = "legacy"
+url = "https://git.mantiumai.com/api/v4/groups/278/-/packages/pypi/simple"
+reference = "dugong"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -476,4 +516,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "3.10.8"
-content-hash = "f2cdad5a63df3426150fa9b1bbfb97121952b410cd520fb92c11e9f97931e190"
+content-hash = "b866e04b8f082c9e93c7cf17dde19e04c89a82df2e7b225bff369ddd353b3262"
