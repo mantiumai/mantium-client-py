@@ -10,7 +10,7 @@ A Python client library for [Mantium services](https://mantiumai.com/).
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install this client.
 
 ```bash
-pip install mantium
+pip install mantium-client
 ```
 
 ## Usage
