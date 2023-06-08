@@ -1,6 +1,6 @@
 # Mantium Client
 
-![CI status](https://github.com/mantiumai/mantium-client-py/actions/workflows/test.yml/badge.svg?branch=main)
+[![CI status](https://github.com/mantiumai/mantium-client-py/actions/workflows/test.yml/badge.svg)](https://github.com/mantiumai/mantium-client-py/actions)
 
 A Python client library for [Mantium services](https://mantiumai.com/).
 
