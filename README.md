@@ -1,6 +1,8 @@
-# Core Client
+# Mantium Client
 
-Core client is a Python library for the Mantium API.
+![CI status](https://github.com/mantiumai/mantium-client-py/actions/workflows/test.yml/badge.svg?branch=main)
+
+A Python client library for [Mantium services](https://mantiumai.com/).
 
 ## Installation
 
