@@ -69,11 +69,10 @@ class MantiumClient(ApiClient):
         """Select the correct header content type."""
         return 'application/json'
 
-    def _token_refresh(self, retry_state: RetryCallState) -> None:
+    def _token_refresh(self, _: RetryCallState) -> None:
         """Refresh the token."""
-        if retry_state.attempt_number:
-            self.access_token = None
-            self.get_token()
+        self.access_token = None
+        self.get_token()
 
     def call_api(self, *args: Any, **kwargs: Any) -> tuple:
         """Call the API with the given args and kwargs."""
@@ -85,7 +84,7 @@ class MantiumClient(ApiClient):
             del kwargs['_request_auth']
 
         access_token = self.get_token()
-        header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
+        header_params.update({'Authorization': f'{access_token+"1"}', 'User-Agent': 'mantium-client-py/' + version})
 
         retryer = Retrying(
             reraise=True,
