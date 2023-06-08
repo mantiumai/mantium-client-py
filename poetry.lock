@@ -127,26 +127,6 @@ url = "https://git.mantiumai.com/api/v4/groups/278/-/packages/pypi/simple"
 reference = "dugong"
 
 [[package]]
-name = "mantium-spec-dev1"
-version = "0.1.0"
-description = "OpenAPI-generated Python client"
-category = "main"
-optional = false
-python-versions = ">=3.10,<4.0"
-files = [
-    {file = "mantium_spec_dev1-0.1.0-py3-none-any.whl", hash = "sha256:20fc20d563c79d76e7f6dd21dc7d441f9f571556fa7199f6f25789fc5769ec61"},
-    {file = "mantium_spec_dev1-0.1.0.tar.gz", hash = "sha256:e50895f0c51802a7e2ac92a22855923e9ef33031a1d449c0fd207c9c93f5bd4d"},
-]
-
-[package.dependencies]
-openapi-client = ">=1.1.7,<2.0.0"
-
-[package.source]
-type = "legacy"
-url = "https://git.mantiumai.com/api/v4/groups/278/-/packages/pypi/simple"
-reference = "dugong"
-
-[[package]]
 name = "mypy"
 version = "0.982"
 description = "Optional static typing for Python"
@@ -516,4 +496,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "3.10.8"
-content-hash = "b866e04b8f082c9e93c7cf17dde19e04c89a82df2e7b225bff369ddd353b3262"
+content-hash = "c3f2a021470d46801ee475728a40de85c7816d0e5cdf9d5cce5c1f8542b897ff"
