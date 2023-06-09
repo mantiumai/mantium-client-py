@@ -1,9 +1,11 @@
 # Mantium Client
-
+[![Mantium logo](https://avatars.githubusercontent.com/u/82233875?s=20&v=4)](https://mantiumai.com/)
 [![CI status](https://github.com/mantiumai/mantium-client-py/actions/workflows/test.yml/badge.svg)](https://github.com/mantiumai/mantium-client-py/actions)
+[![PyPI](https://img.shields.io/pypi/v/mantium-client?color=green)](https://pypi.org/project/mantium-client/)
 [![License](https://img.shields.io/github/license/mantiumai/mantium-client-py)](https://github.com/mantiumai/mantium-client-py/blob/main/LICENSE.txt)
 
-A Python client library for [Mantium services](https://mantiumai.com/).
+
+A Python client library for [Mantium](https://mantiumai.com/) services.
 
 ## Installation
 
@@ -33,8 +35,10 @@ apps_api.list_applications()
 
 ## Development
 
+This is only necessary if you want to develop in this project.
+
 We use `poetry` for dependency management.
 ```shell
 pip install poetry
-poetry install
+poetry install --with dev,test --verbose
 ```
