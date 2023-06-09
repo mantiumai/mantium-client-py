@@ -477,6 +477,18 @@ files = [
 ]
 
 [[package]]
+name = "trove-classifiers"
+version = "2023.5.24"
+description = "Canonical source for classifiers on PyPI (pypi.org)."
+category = "dev"
+optional = false
+python-versions = "*"
+files = [
+    {file = "trove-classifiers-2023.5.24.tar.gz", hash = "sha256:fd5a1546283be941f47540a135bdeae8fb261380a6a204d9c18012f2a1b0ceae"},
+    {file = "trove_classifiers-2023.5.24-py3-none-any.whl", hash = "sha256:d9d7ae14fb90bf3d50bef99c3941b176b5326509e6e9037e622562d6352629d0"},
+]
+
+[[package]]
 name = "types-invoke"
 version = "1.7.3.17"
 description = "Typing stubs for invoke"
@@ -514,6 +526,9 @@ files = [
 
 [package.dependencies]
 fastjsonschema = ">=2.16.2,<=3"
+packaging = {version = ">=20.4", optional = true, markers = "extra == \"all\""}
+tomli = {version = ">=1.2.1", optional = true, markers = "python_version < \"3.11\" and extra == \"all\""}
+trove-classifiers = {version = ">=2021.10.20", optional = true, markers = "extra == \"all\""}
 
 [package.extras]
 all = ["packaging (>=20.4)", "tomli (>=1.2.1)", "trove-classifiers (>=2021.10.20)"]
@@ -544,4 +559,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d66a81e35db4fec0cc0ffedc2ab4e176f82e3bf227ae85159dd346cd59b0f1f9"
+content-hash = "3f71d5f4656b90b31d053cb829aa45958cbcad430b94280aa83facc2415ca047"

@@ -24,6 +24,7 @@ jobs:
       run: |
         python -m pip install poetry==1.5.1
         poetry install --with test
+    - run: poetry run validate-pyproject ./pyproject.toml
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
