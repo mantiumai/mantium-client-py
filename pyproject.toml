@@ -43,7 +43,7 @@ types-invoke = "^1.7.3.3"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
-validate-pyproject = "^0.13"
+validate-pyproject = {version = "^0.13", extras = ["all"]}
 flake8 = "^6.0.0"
 
 [[tool.poetry.source]]
