@@ -10,15 +10,15 @@ jobs:
     steps:
       - name: Tag Check
         run: |
-        sed -En '/\[tool.poetry\]/,/^version/{ s/^version *= *"(.+)"/\1/p; }' pyproject.toml | read toml_version
-        cat <<-EOF
-          GITHUB_REF_TYPE: $GITHUB_REF_TYPE
-          GITHUB_REF_NAME: $GITHUB_REF_NAME
-          pyproject.toml[tool.poetry.version]: $toml_version
-        EOF
-        bail() { echo "Error: pyproject.toml 'version' and git release tag must match" ; exit 1 }
-        [[ "${GITHUB_REF_TYPE}" == 'tag' ]] || bail
-        [[ "${GITHUB_REF_NAME}" == "${toml_version}" ]] || bail
+          sed -En '/\[tool.poetry\]/,/^version/{ s/^version *= *"(.+)"/\1/p; }' pyproject.toml | read toml_version
+          cat <<-EOF
+            GITHUB_REF_TYPE: $GITHUB_REF_TYPE
+            GITHUB_REF_NAME: $GITHUB_REF_NAME
+            pyproject.toml[tool.poetry.version]: $toml_version
+          EOF
+          bail() { echo "Error: pyproject.toml 'version' and git release tag must match" ; exit 1 }
+          [[ "${GITHUB_REF_TYPE}" == 'tag' ]] || bail
+          [[ "${GITHUB_REF_NAME}" == "${toml_version}" ]] || bail
       - name: Checkout
         uses: actions/checkout@v3
         with:
