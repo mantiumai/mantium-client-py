@@ -18,9 +18,8 @@ pip install mantium-client
 ## Usage
 
 ```python
-from mantium import ApiClient
-from mantium.openapi_client.api.applications_api import ApplicationsApi
-
+from mantium_client.api_client import ApiClient
+from mantium_spec.api.applications_api import ApplicationsApi
 
 client = ApiClient(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 apps_api = ApplicationsApi(api_client=client)
