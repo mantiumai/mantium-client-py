@@ -12,14 +12,14 @@ A Python client library for [Mantium](https://mantiumai.com/) services.
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install this client.
 
 ```bash
-pip install mantium_client-mantium
+pip install mantium-client
 ```
 
 ## Usage
 
 ```python
-from mantium_client import ApiClient
-from mantium_client.openapi_client.api.applications_api import ApplicationsApi
+from mantium_client.api_client import ApiClient
+from mantium_spec.api.applications_api import ApplicationsApi
 
 client = ApiClient(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 apps_api = ApplicationsApi(api_client=client)

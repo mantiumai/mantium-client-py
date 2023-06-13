@@ -44,7 +44,7 @@ class MantiumClient(ApiClient):
             grant_type='client_credentials',
             client_id=self.client_id,
             client_secret=self.client_secret,
-            scope='mantium_client:mantium',
+            scope='mantium:client',
         )
         if self.access_token is not None:
             return self.access_token
