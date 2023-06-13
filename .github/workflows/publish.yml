@@ -8,6 +8,10 @@ jobs:
     permissions:
       id-token: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Tag Check
         run: |
           sed -En '/\[tool.poetry\]/,/^version/{ s/^version *= *"(.+)"/\1/p; }' pyproject.toml | read toml_version
@@ -19,10 +23,6 @@ jobs:
           bail() { echo "Error: pyproject.toml 'version' and git release tag must match" ; exit 1 }
           [[ "${GITHUB_REF_TYPE}" == 'tag' ]] || bail
           [[ "${GITHUB_REF_NAME}" == "${toml_version}" ]] || bail
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - run: python3 -m pip install --upgrade build && python3 -m build
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
