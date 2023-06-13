@@ -44,7 +44,7 @@ class MantiumClient(ApiClient):
             grant_type='client_credentials',
             client_id=self.client_id,
             client_secret=self.client_secret,
-            scope='mantium:client',
+            scope='mantium_client:mantium',
         )
         if self.access_token is not None:
             return self.access_token
@@ -83,7 +83,7 @@ class MantiumClient(ApiClient):
             del kwargs['_request_auth']
 
         access_token = self.get_token()
-        header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium-client-py/' + version})
+        header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium_client-mantium-py/' + version})
 
         retryer = Retrying(
             reraise=True,

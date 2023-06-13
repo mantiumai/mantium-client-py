@@ -2,7 +2,7 @@
 from invoke import Runner, task
 
 # Name of the repository
-REPO_NAME = 'core-client-py'
+REPO_NAME = 'core-mantium-py'
 
 
 @task
