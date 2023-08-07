@@ -56,14 +56,21 @@ pip install mantium-client
 ## Usage
 
 ```python
-from mantium_client.api_client import ApiClient
 from mantium_spec.api.applications_api import ApplicationsApi
+from mantium_client.api_client import MantiumClient
 
-client = ApiClient(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-apps_api = ApplicationsApi(api_client=client)
+client = MantiumClient(client_id=client_id, client_secret=client_secret)
+apps_api = ApplicationsApi(client)
 
 # returns a list of applications
 apps_api.list_applications()
+
+# returns an application's details
+apps_api.get_application_detail(application_id)
+
+# query an application
+query_request = {'query': 'What should I have for dinner tonight?'}
+return apps_api.query_application(application_id, query_request)
 ```
 
 ## License
