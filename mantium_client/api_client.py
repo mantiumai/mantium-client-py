@@ -1,5 +1,5 @@
 import os
-from typing import Any
+from typing import Any, Optional
 
 import requests
 from openapi_client import ApiClient
@@ -9,7 +9,7 @@ from tenacity import RetryCallState, Retrying, retry_if_exception_type, stop_aft
 from .version import __version__
 
 
-def is_none_or_empty(value: str | None) -> bool:
+def is_none_or_empty(value: Optional[str]) -> bool:
     """Check if a value is None or empty."""
     if value is None:
         return True
@@ -29,7 +29,7 @@ class MantiumClient(ApiClient):
 
         self.client_id = client_id or os.getenv('MANTIUM_CLIENT_ID')
         self.client_secret = client_secret or os.getenv('MANTIUM_CLIENT_SECRET')
-        self.access_token: str | None = None
+        self.access_token: Optional[str] = None
 
         self.host = os.getenv('ROOT_URL', 'https://api2.mantiumai.com')
         self.client_side_validation = False
