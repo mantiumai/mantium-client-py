@@ -1,12 +1,11 @@
-[tool.poetry]
+[project]
 name = "mantium-client"
 version = "0.1.4"
 license = "Apache-2.0"
+requires-python = ">=3.8"
 description = "Python client for the Mantium API"
 authors = ["Mantium <support@mantiumai.com>"]
 readme = "README.md"
-repository = "https://github.com/mantiumai/mantium-client-py"
-homepage = "https://github.com/mantiumai/mantium-client-py"
 classifiers = [
     'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
@@ -27,9 +26,9 @@ classifiers = [
 keywords = ["mantium", "ChatGPT", "AI"]
 
 
-[project]
-name = "mantium-client"
-requires-python = ">=3.8"
+[tool.poetry]
+repository = "https://github.com/mantiumai/mantium-client-py"
+homepage = "https://github.com/mantiumai/mantium-client-py"
 
 
 [tool.poetry.dependencies]
@@ -37,7 +36,7 @@ fastapi = "^0.97.0"
 mantium-spec = "1.0.332"
 pre-commit = "2.20.0"
 pydantic = "^1.10.2"
-python = "^3.10"
+python = "^3.8"
 requests = "^2.31.0"
 tenacity = "^8.2.2"
 types-requests = "^2.31.0.1"
