@@ -28,6 +28,7 @@ keywords = ["mantium", "ChatGPT", "AI"]
 
 
 [project]
+name = "mantium-client"
 requires-python = ">=3.8"
 
 
