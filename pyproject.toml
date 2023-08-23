@@ -25,6 +25,9 @@ classifiers = [
     'Operating System :: OS Independent'
 ]
 keywords = ["mantium", "ChatGPT", "AI"]
+
+
+[project]
 requires-python = ">=3.8"
 
 
