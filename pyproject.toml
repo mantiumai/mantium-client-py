@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mantium-client"
-version = "0.1.5"
+version = "0.1.6"
 license = "Apache-2.0"
 description = "Python client for the Mantium API"
 authors = ["Mantium <support@mantiumai.com>"]
@@ -29,10 +29,10 @@ keywords = ["mantium", "ChatGPT", "AI"]
 
 [tool.poetry.dependencies]
 fastapi = "^0.97.0"
-mantium-spec = "1.0.332"
+mantium-spec = "1.0.740"
 pre-commit = "2.20.0"
 pydantic = "^1.10.2"
-python = "^3.8"
+python = "^3.8.1"
 requests = "^2.31.0"
 tenacity = "^8.2.2"
 types-requests = "^2.31.0.1"

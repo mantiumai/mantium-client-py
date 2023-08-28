@@ -290,14 +290,14 @@ files = [
 
 [[package]]
 name = "mantium-spec"
-version = "1.0.332"
+version = "1.0.740"
 description = "OpenAPI-generated Python client"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mantium_spec-1.0.332-py3-none-any.whl", hash = "sha256:6b634581c90fb11fac134bde6942472fe05d9b59c4a19a9522c8f142dcfa1698"},
-    {file = "mantium_spec-1.0.332.tar.gz", hash = "sha256:5c2686fcd08e16c61e96a18535fafb1ca2d2a0042f448acee1c0dcc3b3a2690f"},
+    {file = "mantium_spec-1.0.740-py3-none-any.whl", hash = "sha256:c7d5fa9b29f2a1ba546d258cc16c7221d4e42b2c870664e64700380e369f95d3"},
+    {file = "mantium_spec-1.0.740.tar.gz", hash = "sha256:10543a9f3d9e291605c8eb90033e611079108caa187904d2d72ff54934119748"},
 ]
 
 [package.dependencies]
@@ -707,6 +707,7 @@ files = [
 
 [package.dependencies]
 anyio = ">=3.4.0,<5"
+typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyaml"]
@@ -877,5 +878,5 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.3)", "coverage-enable-subprocess
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.10"
-content-hash = "6de7640dcfcc573f9cdfae95ed7e15dd8dcb200c5433d67bde3afd81ee145343"
+python-versions = "^3.8.1"
+content-hash = "df54c4247ce47c41742e8f4744734c608e5c00248d4529616dad5ddd033a8ab7"
