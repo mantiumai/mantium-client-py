@@ -73,6 +73,11 @@ query_request = {'query': 'What should I have for dinner tonight?'}
 return apps_api.query_application(application_id, query_request)
 ```
 
+## Contributing / Code of Conduct
+
+- Find our contributing guide [here](CONTRIBUTING.md).
+- Find our Code of Conduct [here](CoC.md). 
+
 ## License
 
 [Apache-2.0](https://choosealicense.com/licenses/apache-2.0/)
