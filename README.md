@@ -73,6 +73,10 @@ query_request = {'query': 'What should I have for dinner tonight?'}
 return apps_api.query_application(application_id, query_request)
 ```
 
+## Available API Endpoints
+
+Please see the PyPI-hosted [mantium-spec](https://pypi.org/project/mantium-spec/) package for details on API endpoints available through the ApplicationsApi class.
+
 ## License
 
 [Apache-2.0](https://choosealicense.com/licenses/apache-2.0/)
