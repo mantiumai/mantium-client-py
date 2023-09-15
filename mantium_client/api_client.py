@@ -74,7 +74,7 @@ class MantiumClient(ApiClient):
         self.access_token = None
         self.get_token()
 
-    def identify_as(self, user_email: str | None) -> None:
+    def identify_as(self, user_email: str) -> None:
         """Identify as a user in your org by email.
 
         This will only work if you're an organization owner, and the user is in your organization.
