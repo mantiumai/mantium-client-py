@@ -33,7 +33,7 @@ class MantiumClient(ApiClient):
 
         self.host = os.getenv('ROOT_URL', 'https://api2.mantiumai.com')
         self.client_side_validation = False
-        self.user_email: str | None = None
+        self.user_email = None
 
     def get_token(self) -> str:
         """Get a token from the Mantium API."""
