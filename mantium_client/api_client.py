@@ -73,6 +73,14 @@ class MantiumClient(ApiClient):
         self.access_token = None
         self.get_token()
 
+    def identify_as(self, user_email: str | None) -> None:
+        """Identify as a user in your org by email.
+
+        This will only work if you're an organization owner, and the user is in your organization.
+        Pass in None to stop impersonating.
+        """
+        self.user_email = user_email
+
     def call_api(self, *args: Any, **kwargs: Any) -> tuple:
         """Call the API with the given args and kwargs."""
         resource_path, method, path_params, query_params, header_params = args
@@ -84,7 +92,8 @@ class MantiumClient(ApiClient):
 
         access_token = self.get_token()
         header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium_client-mantium-py/' + version})
-
+        if self.user_email:
+            header_params.update({'substitute-user': self.user_email})
         retryer = Retrying(
             reraise=True,
             wait=wait_fixed(2),
