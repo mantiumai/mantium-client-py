@@ -94,7 +94,7 @@ class MantiumClient(ApiClient):
         access_token = self.get_token()
         header_params.update({'Authorization': f'{access_token}', 'User-Agent': 'mantium_client-mantium-py/' + version})
         if self.user_email:
-            header_params.update({'substitute-user': self.user_email})
+            header_params.update({'X-Mantium-Substitute-User-Email': self.user_email})
         retryer = Retrying(
             reraise=True,
             wait=wait_fixed(2),
