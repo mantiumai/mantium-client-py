@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mantium-client"
-version = "0.1.6"
+version = "0.1.7"
 license = "Apache-2.0"
 description = "Python client for the Mantium API"
 authors = ["Mantium <support@mantiumai.com>"]
