@@ -29,7 +29,7 @@ keywords = ["mantium", "ChatGPT", "AI"]
 
 [tool.poetry.dependencies]
 fastapi = "^0.97.0"
-mantium-spec = "1.0.740"
+mantium-spec = "1.0.976"
 pre-commit = "2.20.0"
 pydantic = "^1.10.2"
 python = "^3.8.1"
